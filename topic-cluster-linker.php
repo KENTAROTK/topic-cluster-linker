@@ -1,13 +1,20 @@
 <?php
 /**
  * Plugin Name: Topic Cluster Linker
- * Description: ピラーページとクラスターページの内部リンクを自動提案・挿入します。
- * Version: 6.8
+ * Description: 投稿に関連するクラスターページを提案・保存・内部リンクするWordPressプラグイン
+ * Version: 0.1
  * Author: あなた
  */
 
 if (!defined('ABSPATH')) exit;
 
-require_once plugin_dir_path(__FILE__) . 'includes/logger.php';
-require_once plugin_dir_path(__FILE__) . 'includes/propose-cluster.php';
-require_once plugin_dir_path(__FILE__) . 'admin/settings-page.php';
+// 管理メニュー追加
+add_action('admin_menu', function () {
+    add_menu_page('トピッククラスター', 'トピッククラスター', 'manage_options', 'topic-cluster-linker', 'tcl_render_admin_settings_page');
+});
+
+function tcl_render_admin_settings_page() {
+    echo '<div class="wrap"><h1>トピッククラスター管理</h1>';
+    echo '<p>ここにクラスターページ提案一覧などを表示予定。</p>';
+    echo '</div>';
+}
