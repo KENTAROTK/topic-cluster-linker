@@ -1,8 +1,0 @@
-{
-    "require": {
-        "googleads/google-ads-php": "^v22.0.0"
-    },
-    "config": {
-        "optimize-autoloader": true
-    }
-}
